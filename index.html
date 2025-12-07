@@ -15,11 +15,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js" integrity="sha512-xAxjKW1J/R4TFytv43xvQ7jFTrJlBzsDOH/Aw0fFc2nvarQkE3d08lTicjzUsZJYDoHYDCpwsUUqOJXh34A1sw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js" integrity="sha512-xAxjKW1J/R4TFytv43xvQ7jFTrJlBzsDOH/Aw0fFc2nvarQkE3d08lTicjzUsZJYDoHYDCpwsUUqOJXh34A1sw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" integrity="sha512-1PKqXBz2ju2JcAerHKL0ldg0PT/1vr3LghYAtc59+9xy8e19QEtaNUyt1gprouyWnpOPqNJjL4gXMRMEpHYyLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
-<body> <div id="particles-js"></div>
+<body>
+    <div id="particles-js"></div>
 
     <header id="header">
         <nav id="navbar" class="container">
@@ -33,8 +34,7 @@
                 <li role="none"><a href="#skills" class="nav-link" role="menuitem">Skills</a></li>
                 <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
             </ul>
-            <button id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
-                </button>
+            <button id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false"></button>
         </nav>
     </header>
 
@@ -48,13 +48,19 @@
                 <p class="subtitle hero-anim">
                     <span id="typing-effect"></span>
                 </p>
-                <p class="hero-description hero-anim">Bridging creative engineering with robust software solutions. Passionate about technology, from embedded systems to scalable web applications.</p>
+                <p class="hero-description hero-anim">
+                    Software Engineering B.Tech student & QA intern, building reliable systems from embedded devices to full-stack web apps. I care about code quality, clean architecture, and shipping things that actually work in the real world.
+                </p>
                 <div class="hero-links hero-anim">
-                    <a href="#projects" class="btn btn-primary" data-hover-text="View My Work"><i class="fas fa-rocket"></i><span>View Projects</span></a>
-                    <a href="YOUR_GITHUB_LINK_HERE" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-hover-text="Code & More"><i class="fab fa-github"></i><span>GitHub</span></a>
+                    <a href="#projects" class="btn btn-primary" data-hover-text="View My Work">
+                        <i class="fas fa-rocket"></i><span>View Projects</span>
+                    </a>
+                    <a href="https://github.com/JosephCatalano" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-hover-text="Code & More">
+                        <i class="fab fa-github"></i><span>GitHub</span>
+                    </a>
                 </div>
             </div>
-             <a href="#about" class="scroll-down-indicator" aria-label="Scroll down">
+            <a href="#about" class="scroll-down-indicator" aria-label="Scroll down">
                 <i class="fas fa-chevron-down"></i>
             </a>
         </section>
@@ -63,10 +69,15 @@
             <div class="container grid-about">
                 <div class="about-text content-box">
                     <h2><i class="fas fa-user-astronaut"></i> About Me</h2>
-                    <p>Driven Software Engineering student (B.Tech @ McMaster) with a foundation in Computer Engineering Technology (Adv. Diploma @ Seneca, GPA 3.5). My journey spans hands-on technical development, entrepreneurial leadership in digital marketing, and process optimization in supervisory roles.</p>
-                    <p>I thrive on solving complex problems, whether it's architecting an IoT system, optimizing sales strategies, or debugging intricate code. I'm passionate about the intersection of hardware and software, and constantly exploring new technologies.</p>
-                    <p>Beyond the screen, you'll find me exploring interests like:</p>
-                     <ul class="interests-list">
+                    <p>
+                        I’m a Software Engineering Technology student (B.Tech, McMaster University – online degree completion) with an advanced diploma in Computer Engineering Technology from Seneca Polytechnic (GPA 3.2/4.0).
+                        I sit at the intersection of hardware and software: from embedded systems and IoT to web apps and cloud-backed tools.
+                    </p>
+                    <p>
+                        I like taking messy problems and turning them into clean, working systems—whether that’s debugging a flaky ESP32, tightening up QA flows on an enterprise app, or shipping something people can actually click on and use.
+                    </p>
+                    <p>Outside of classes and work, I’m usually diving into:</p>
+                    <ul class="interests-list">
                         <li><i class="fas fa-dumbbell"></i> Fitness</li>
                         <li><i class="fas fa-book"></i> Books</li>
                         <li><i class="fas fa-chess-knight"></i> Chess</li>
@@ -76,12 +87,12 @@
                         <li><i class="fas fa-hockey-puck"></i> Hockey</li>
                         <li><i class="fas fa-rocket"></i> Outer Space</li>
                         <li><i class="fas fa-car"></i> Cars</li>
-                         <li><i class="fas fa-seedling"></i> Self Growth</li>
+                        <li><i class="fas fa-seedling"></i> Self Growth</li>
                     </ul>
                 </div>
-                 <div class="about-image">
+                <div class="about-image">
                     <img src="https://via.placeholder.com/400x500/555/eee?text=Joseph+C." alt="Joseph Catalano">
-                 </div>
+                </div>
             </div>
         </section>
 
@@ -89,59 +100,98 @@
             <div class="container">
                 <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Journey</h2>
                 <div class="timeline">
+
+                    <!-- OPS QA ROLE -->
                     <div class="timeline-item">
                         <div class="timeline-content card-hover content-box">
-                            <span class="timeline-date">Dec 2024 – Present</span>
+                            <span class="timeline-date">Jan 2025 – Present</span>
+                            <h3>I&IT Technology Specialist / QA Tester</h3>
+                            <p class="company">
+                                <i class="fas fa-building"></i> Public & Business Services & Procurement (Ontario Public Service)
+                                <span class="location"><i class="fas fa-map-marker-alt"></i> Toronto, ON · On-site</span>
+                            </p>
+                            <ul>
+                                <li>Support QA activities within the Government Services Integration Cluster for provincial digital services.</li>
+                                <li>Execute manual test cases for new features and enhancements across enterprise applications.</li>
+                                <li>Log, analyze, and retest defects using OPS tools and standards to help keep services reliable.</li>
+                                <li>Review requirements and user stories for clarity and testability, collaborating with devs, BAs, and product teams.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- AO GLOBE LIFE -->
+                    <div class="timeline-item">
+                        <div class="timeline-content card-hover content-box">
+                            <span class="timeline-date">Dec 2024 – May 2025</span>
                             <h3>Regional Producer</h3>
-                            <p class="company"><i class="fas fa-building"></i> Globe Life - AO Division <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span></p>
+                            <p class="company">
+                                <i class="fas fa-building"></i> AO Globe Life
+                                <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span>
+                            </p>
                             <ul>
-                                <li>Exceeded sales targets by 130% (>$40k revenue impact).</li>
-                                <li>Led and mentored a team of 5 agents, boosting regional performance.</li>
-                                <li>Implemented data-driven sales strategies using performance metrics.</li>
+                                <li>Met with union members over Zoom to walk through permanent benefits and coverage options.</li>
+                                <li>Developed strong communication and objection-handling skills through daily client conversations.</li>
+                                <li>Used a structured needs-analysis process to match families with appropriate protection plans.</li>
                             </ul>
                         </div>
                     </div>
-                     <div class="timeline-item">
-                        <div class="timeline-content card-hover content-box">
-                            <span class="timeline-date">June 2022 - Sept 2023</span>
-                            <h3>Founder / CEO</h3>
-                            <p class="company"><i class="fas fa-building"></i> Digital Orb Marketing <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span></p>
-                            <ul>
-                                <li>Managed startup operations (Project Mgt, Leadership).</li>
-                                <li>Executed digital marketing campaigns (SEO, Social Media, Content).</li>
-                                <li>Leveraged Google Analytics for strategy optimization & ROI tracking.</li>
-                            </ul>
-                        </div>
-                    </div>
+
+                    <!-- DIGITAL ORB -->
                     <div class="timeline-item">
                         <div class="timeline-content card-hover content-box">
-                             <span class="timeline-date">Dec 2017 - Nov 2024</span>
-                            <h3>Front End Supervisor</h3>
-                            <p class="company"><i class="fas fa-building"></i> Food Basics <span class="location"><i class="fas fa-map-marker-alt"></i> Georgetown, ON</span></p>
+                            <span class="timeline-date">Jun 2022 – Aug 2023</span>
+                            <h3>Founder</h3>
+                            <p class="company">
+                                <i class="fas fa-building"></i> Digital Orb Marketing
+                                <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span>
+                            </p>
                             <ul>
-                                <li>Oversaw financial audits, cash handling, and compliance.</li>
-                                <li>Managed customer service escalations and issue resolution.</li>
-                                <li>Trained and onboarded new team members.</li>
+                                <li>Started and ran a small digital marketing shop, handling everything from sales to delivery.</li>
+                                <li>Built and executed SEO, social, and content campaigns focused on measurable client growth.</li>
+                                <li>Managed client relationships, budgets, and timelines while reporting on performance and ROI.</li>
                             </ul>
                         </div>
                     </div>
-                     <div class="timeline-item">
+
+                    <!-- FOOD BASICS -->
+                    <div class="timeline-item">
                         <div class="timeline-content card-hover content-box">
-                            <span class="timeline-date">Summer 2021-2024</span>
-                            <h3>Foreman</h3>
-                            <p class="company"><i class="fas fa-building"></i> Ampac Paving <span class="location"><i class="fas fa-map-marker-alt"></i> Concord, ON</span></p>
+                            <span class="timeline-date">Dec 2017 – Oct 2024</span>
+                            <h3>Front End Supervisor</h3>
+                            <p class="company">
+                                <i class="fas fa-building"></i> Food Basics
+                                <span class="location"><i class="fas fa-map-marker-alt"></i> Georgetown, ON</span>
+                            </p>
                             <ul>
-                                <li>Led and coordinated a team of 4+ on paving projects.</li>
-                                <li>Managed project resources, equipment, and timelines.</li>
-                             </ul>
+                                <li>Led front-end staff scheduling, task delegation, and on-the-job training.</li>
+                                <li>Handled cash handling, returns, and customer escalations while keeping lines moving.</li>
+                                <li>Maintained store standards for safety, cleanliness, and policy compliance.</li>
+                            </ul>
                         </div>
                     </div>
+
+                    <!-- AMPAC -->
+                    <div class="timeline-item">
+                        <div class="timeline-content card-hover content-box">
+                            <span class="timeline-date">Summers 2021 – 2024</span>
+                            <h3>Foreman</h3>
+                            <p class="company">
+                                <i class="fas fa-building"></i> Ampac Paving
+                                <span class="location"><i class="fas fa-map-marker-alt"></i> Concord, ON</span>
+                            </p>
+                            <ul>
+                                <li>Led a small crew on interlock and paving projects, coordinating daily tasks and resources.</li>
+                                <li>Managed on-site problem solving, time constraints, and client expectations.</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-         <section id="projects" class="section bg-darker">
-             <div class="container">
+        <section id="projects" class="section bg-darker">
+            <div class="container">
                 <h2 class="section-title"><i class="fas fa-laptop-code"></i> Featured Projects</h2>
                 <div class="filter-buttons">
                     <button class="btn btn-filter active" data-filter="all">All</button>
@@ -158,39 +208,54 @@
                         </div>
                         <div class="project-info">
                             <h3>IQ-Leaf System</h3>
-                            <p>Automated plant monitoring & watering with IoT web interface and local display.</p>
+                            <p>End-to-end IoT plant care system with custom PCB, ESP32 firmware, and a local web dashboard for real-time monitoring and control.</p>
                             <div class="project-tags">
                                 <span class="tag">IoT</span><span class="tag">ESP32</span><span class="tag">C</span><span class="tag">HTML</span><span class="tag">JS</span><span class="tag">PCB</span>
                             </div>
                         </div>
                     </article>
-                    </div>
-             </div>
-         </section>
+                </div>
+            </div>
+        </section>
 
         <section id="education" class="section">
             <div class="container">
                 <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
                 <div class="education-grid">
-                     <div class="education-item card-hover content-box">
+
+                    <div class="education-item card-hover content-box">
                         <div class="edu-header">
-                             <i class="fas fa-university"></i>
+                            <i class="fas fa-university"></i>
                             <h3>McMaster University</h3>
                         </div>
-                        <p><strong>B.Tech - Software Engineering</strong></p>
-                        <p><span class="edu-date"><i class="fas fa-calendar-alt"></i> Expected: May 2027</span> | <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span></p>
-                        <p class="edu-details">Relevant Coursework: Data Structures, OOP, Databases, Software Design, Web Dev, OS.</p>
+                        <p><strong>Bachelor of Technology (B.Tech) – Software Engineering Technology</strong></p>
+                        <p>
+                            <span class="edu-date"><i class="fas fa-calendar-alt"></i> May 2025 – Dec 2027 (In Progress)</span> |
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span>
+                        </p>
+                        <p><strong>GPA:</strong> 4.0 / 4.0</p>
+                        <p class="edu-details">
+                            Online degree completion program through the W. Booth School of Engineering Practice & Technology, focused on applied software engineering and real-world problem solving.
+                            Core areas include data structures & algorithms, software architecture & design, web & mobile development, AI & ML, and computer & network security.
+                        </p>
                     </div>
-                     <div class="education-item card-hover content-box" data-anim-delay="0.1">
-                         <div class="edu-header">
+
+                    <div class="education-item card-hover content-box" data-anim-delay="0.1">
+                        <div class="edu-header">
                             <i class="fas fa-school"></i>
                             <h3>Seneca Polytechnic</h3>
-                         </div>
-                        <p><strong>Advanced Diploma - Computer Engineering Technology</strong></p>
-                        <p><span class="edu-date"><i class="fas fa-calendar-alt"></i> Graduated: Dec 2024</span> | <span class="location"><i class="fas fa-map-marker-alt"></i> Newnham, ON</span></p>
-                         <p>GPA: 3.5</p>
-                        <p class="edu-details">Relevant Coursework: Networking, Embedded Systems, Computer Arch, Cyber Security.</p>
+                        </div>
+                        <p><strong>Advanced Diploma – Computer Engineering Technology (ECT)</strong></p>
+                        <p>
+                            <span class="edu-date"><i class="fas fa-calendar-alt"></i> Sep 2020 – May 2024</span> |
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Newnham, ON</span>
+                        </p>
+                        <p><strong>GPA:</strong> 3.2 / 4.0</p>
+                        <p class="edu-details">
+                            Three-year applied program combining hardware and software. Gained hands-on experience with embedded C, C/C++, Java, Linux, microcontroller interfacing (ARM), digital logic/VHDL, networking, and data communications.
+                        </p>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -198,34 +263,34 @@
         <section id="skills" class="section bg-darker">
             <div class="container">
                 <h2 class="section-title"><i class="fas fa-cogs"></i> Technical Skills</h2>
-                 <div class="skills-container">
+                <div class="skills-container">
                     <div class="skill-category content-box">
                         <h3><i class="fas fa-code"></i> Languages</h3>
                         <div class="skills-list">
                             <span>Python</span><span>Java</span><span>C#</span><span>JavaScript</span><span>C++</span><span>C</span><span>SQL</span><span>HTML5</span><span>CSS3</span>
                         </div>
                     </div>
-                     <div class="skill-category content-box">
+                    <div class="skill-category content-box">
                         <h3><i class="fas fa-layer-group"></i> Frameworks & Libraries</h3>
-                         <div class="skills-list">
+                        <div class="skills-list">
                             <span>React</span><span>Node.js</span><span>GSAP</span><span>Git</span><span>Eagle (PCB)</span><span>AWS (Familiar)</span><span>Azure (Familiar)</span>
                         </div>
                     </div>
                     <div class="skill-category content-box">
                         <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
-                         <div class="skills-list">
-                             <span>VS Code</span><span>IntelliJ</span><span>Git/GitHub</span><span>Docker (Basic)</span><span>Linux</span><span>Windows</span><span>Google Analytics</span>
+                        <div class="skills-list">
+                            <span>VS Code</span><span>IntelliJ</span><span>Git/GitHub</span><span>Docker (Basic)</span><span>Linux</span><span>Windows</span><span>Google Analytics</span>
                         </div>
                     </div>
-                      <div class="skill-category content-box">
+                    <div class="skill-category content-box">
                         <h3><i class="fas fa-brain"></i> Methodologies & Concepts</h3>
-                         <div class="skills-list">
+                        <div class="skills-list">
                             <span>OOP</span><span>Data Structures</span><span>Algorithms</span><span>Agile (Familiar)</span><span>REST APIs</span><span>MVC</span><span>IoT</span><span>Embedded Systems</span>
                         </div>
                     </div>
                     <div class="skill-category content-box">
                         <h3><i class="fas fa-users"></i> Professional</h3>
-                         <div class="skills-list">
+                        <div class="skills-list">
                             <span>Team Leadership</span><span>Project Management</span><span>Problem-Solving</span><span>Communication</span><span>Sales</span><span>Entrepreneurship</span><span>Data Analysis</span>
                         </div>
                     </div>
@@ -239,36 +304,36 @@
                 <p class="contact-subtitle">Interested in collaborating or have a question? Feel free to reach out!</p>
                 <div class="contact-methods">
                     <div class="contact-card card-hover content-box">
-                         <a href="mailto:joseph1catalano@gmail.com" aria-label="Email Joseph Catalano">
+                        <a href="mailto:joseph1catalano@gmail.com" aria-label="Email Joseph Catalano">
                             <i class="fas fa-envelope-open-text"></i>
                             <h3>Email</h3>
                             <span>joseph1catalano@gmail.com</span>
                         </a>
                     </div>
-                     <div class="contact-card card-hover content-box">
+                    <div class="contact-card card-hover content-box">
                         <a href="tel:+16474720905" aria-label="Call Joseph Catalano">
                             <i class="fas fa-phone-alt"></i>
                             <h3>Phone</h3>
                             <span>(647) 472-0905</span>
                         </a>
                     </div>
-                     <div class="contact-card card-hover content-box">
-                         <a href="YOUR_GITHUB_LINK_HERE" target="_blank" rel="noopener noreferrer" aria-label="Joseph Catalano on GitHub">
-                             <i class="fab fa-github"></i>
+                    <div class="contact-card card-hover content-box">
+                        <a href="https://github.com/JosephCatalano" target="_blank" rel="noopener noreferrer" aria-label="Joseph Catalano on GitHub">
+                            <i class="fab fa-github"></i>
                             <h3>GitHub</h3>
                             <span>View My Repositories</span>
-                         </a>
-                     </div>
-                     </div>
-                 <p class="contact-location"><i class="fas fa-map-marker-alt"></i> Based in Georgetown, ON, Canada</p>
+                        </a>
+                    </div>
+                </div>
+                <p class="contact-location"><i class="fas fa-map-marker-alt"></i> Based in Georgetown, ON, Canada</p>
             </div>
         </section>
     </main>
 
     <footer id="footer">
         <div class="container">
-            <p>&copy; <span id="current-year"></span> Joseph Catalano. Built with <i class="fas fa-heart" style="color: var(--accent-color);"></i> and Code.</p>
-             <p style="font-size: 0.8em; margin-top: 5px;">Generated on Wednesday, March 26, 2025.</p>
+            <p>&copy; <span id="current-year"></span> Joseph Catalano. Built with <i class="fas fa-heart" style="color: var(--accent-color);"></i> and code.</p>
+            <p style="font-size: 0.8em; margin-top: 5px;">Last updated in 2025.</p>
         </div>
     </footer>
 
@@ -277,23 +342,25 @@
             <button class="modal-close" aria-label="Close modal">&times;</button>
             <h2 id="modal-iqleaf-title">IQ-Leaf System</h2>
             <img src="https://via.placeholder.com/600x350/007bff/eee?text=IQ-Leaf+Detail+(Replace+Me)" alt="IQ-Leaf Detailed View" class="modal-image">
-            <p>This project involved creating an end-to-end IoT solution for plant care, integrating sensors, actuators, custom hardware, and both local and remote interfaces. It showcases skills in embedded systems programming, PCB design, web development (for the interface), and IoT principles.</p>
+            <p>
+                IQ-Leaf is an end-to-end IoT solution for plant care, integrating sensors, actuators, custom hardware, and both local and remote interfaces. It showcases embedded programming, PCB design, and web development.
+            </p>
             <p><strong>Key Features & Implementation Details:</strong></p>
             <ul>
-                <li>**Real-time Sensing:** Utilized a capacitive moisture sensor connected to the ESP32's ADC for accurate soil hydration monitoring, less prone to corrosion than resistive sensors.</li>
-                <li>**Automated Actuation:** Controlled a 5V water pump via a relay module, triggered by software logic based on configurable moisture thresholds. Implemented safeguards to prevent overwatering.</li>
-                <li>**Custom Hardware:** Designed and fabricated a custom PCB using Eagle CAD software. This integrated the ESP32-S3 microcontroller, sensor interfaces, power regulation (3.3V for ESP, 5V for peripherals), relay driver, and connectors for a modular design.</li>
-                <li>**Remote Interface:** Developed a responsive web dashboard served directly from the ESP32 using an asynchronous web server library. This allowed monitoring sensor data (moisture, potentially temperature/light later) and manual pump control over the local Wi-Fi network via HTML, CSS, and JavaScript.</li>
-                <li>**Visual Monitoring:** Integrated an ESP32-CAM module streaming video over Wi-Fi, accessible through the web interface, allowing for visual checks on the plant's condition.</li>
-                <li>**Local Display:** Included a TFT LCD screen connected via SPI to display current moisture levels, system status (e.g., "Watering", "Idle"), Wi-Fi connection details, and IP address for easy access to the web interface.</li>
-                <li>**Programming:** Core logic implemented in C/C++ within the Arduino framework for the ESP32. Leveraged libraries for Wi-Fi connectivity, web server, sensor communication (I2C/Analog), display drivers (SPI), and camera interfacing.</li>
-                 <li>**Version Control:** Utilized Git throughout the development process for code management and tracking changes.</li>
+                <li>Real-time soil moisture sensing using a capacitive sensor connected to the ESP32’s ADC.</li>
+                <li>Automated watering via a 5V pump and relay, with safeguards to prevent over-watering.</li>
+                <li>Custom PCB designed in Eagle CAD integrating ESP32-S3, power regulation, relay driver, and sensor/connectors.</li>
+                <li>Responsive web dashboard served from the ESP32 using an async web server (HTML, CSS, JavaScript) over Wi-Fi.</li>
+                <li>ESP32-CAM video stream for visual checks, accessible through the same interface.</li>
+                <li>TFT LCD status display (SPI) for moisture levels, system state, and connection info.</li>
+                <li>Core logic written in C/C++ (Arduino framework) with libraries for Wi-Fi, web server, display, and camera.</li>
+                <li>Version control with Git throughout development.</li>
             </ul>
-            <p><strong>Technologies Used:</strong> ESP32-S3, C/C++, Arduino Framework, HTML, CSS, JavaScript, Eagle CAD (PCB), Capacitive Moisture Sensor, ESP32-CAM, TFT LCD (SPI), Relay Module, Wi-Fi, Async Web Server, Git.</p>
-            <div class="modal-links">
-                </div>
+            <p><strong>Technologies Used:</strong> ESP32-S3, ESP32-CAM, C/C++, Arduino Framework, HTML, CSS, JavaScript, Eagle CAD, capacitive moisture sensor, TFT LCD, relay module, Wi-Fi, async web server, Git.</p>
+            <div class="modal-links"></div>
         </div>
     </div>
+
     <script defer src="script.js"></script>
 
 </body>
