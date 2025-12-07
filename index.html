@@ -1,367 +1,642 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joseph Catalano | Creative Software Engineer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joseph Catalano | Software Engineering & QA</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
-    <link rel="stylesheet" href="style.css">
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js" integrity="sha512-xAxjKW1J/R4TFytv43xvQ7jFTrJlBzsDOH/Aw0fFc2nvarQkE3d08lTicjzUsZJYDoHYDCpwsUUqOJXh34A1sw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" integrity="sha512-1PKqXBz2ju2JcAerHKL0ldg0PT/1vr3LghYAtc59+9xy8e19QEtaNUyt1gprouyWnpOPqNJjL4gXMRMEpHYyLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+  <!-- GSAP -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+    integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"
+    integrity="sha512-xAxjKW1J/R4TFytv43xvQ7jFTrJlBzsDOH/Aw0fFc2nvarQkE3d08lTicjzUsZJYDoHYDCpwsUUqOJXh34A1sw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"
+    integrity="sha512-1PKqXBz2ju2JcAerHKL0ldg0PT/1vr3LghYAtc59+9xy8e19QEtaNUyt1gprouyWnpOPqNJjL4gXMRMEpHYyLQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
 </head>
+
 <body>
-    <div id="particles-js"></div>
+  <div id="bg-glow"></div>
 
-    <header id="header">
-        <nav id="navbar" class="container">
-            <a href="#hero" class="logo-link" aria-label="Homepage"><h1 class="logo">JC</h1></a>
-            <ul role="menubar">
-                <li role="none"><a href="#hero" class="nav-link active" role="menuitem">Home</a></li>
-                <li role="none"><a href="#about" class="nav-link" role="menuitem">About</a></li>
-                <li role="none"><a href="#experience" class="nav-link" role="menuitem">Experience</a></li>
-                <li role="none"><a href="#projects" class="nav-link" role="menuitem">Projects</a></li>
-                <li role="none"><a href="#education" class="nav-link" role="menuitem">Education</a></li>
-                <li role="none"><a href="#skills" class="nav-link" role="menuitem">Skills</a></li>
-                <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
-            </ul>
-            <button id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false"></button>
-        </nav>
-    </header>
+  <!-- Header / Nav -->
+  <header id="header">
+    <nav id="navbar" class="container">
+      <a href="#hero" class="logo-link" aria-label="Go to top">
+        <div class="logo-mark">
+          <span class="logo-initial">J</span>
+          <span class="logo-initial">C</span>
+        </div>
+      </a>
 
-    <main id="main-content">
+      <ul class="nav-links" role="menubar">
+        <li role="none"><a href="#hero" class="nav-link active" role="menuitem">Home</a></li>
+        <li role="none"><a href="#about" class="nav-link" role="menuitem">About</a></li>
+        <li role="none"><a href="#experience" class="nav-link" role="menuitem">Experience</a></li>
+        <li role="none"><a href="#projects" class="nav-link" role="menuitem">Projects</a></li>
+        <li role="none"><a href="#education" class="nav-link" role="menuitem">Education</a></li>
+        <li role="none"><a href="#skills" class="nav-link" role="menuitem">Skills</a></li>
+        <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
+      </ul>
 
-        <section id="hero" class="section full-screen">
-            <div class="container hero-content">
-                <h2 class="hero-title hero-anim">
-                    Joseph Catalano
-                </h2>
-                <p class="subtitle hero-anim">
-                    <span id="typing-effect"></span>
-                </p>
-                <p class="hero-description hero-anim">
-                    Software Engineering B.Tech student & QA intern, building reliable systems from embedded devices to full-stack web apps. I care about code quality, clean architecture, and shipping things that actually work in the real world.
-                </p>
-                <div class="hero-links hero-anim">
-                    <a href="#projects" class="btn btn-primary" data-hover-text="View My Work">
-                        <i class="fas fa-rocket"></i><span>View Projects</span>
-                    </a>
-                    <a href="https://github.com/JosephCatalano" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-hover-text="Code & More">
-                        <i class="fab fa-github"></i><span>GitHub</span>
-                    </a>
-                </div>
-            </div>
-            <a href="#about" class="scroll-down-indicator" aria-label="Scroll down">
-                <i class="fas fa-chevron-down"></i>
+      <button id="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-xmark"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- HERO -->
+    <section id="hero" class="section full-screen">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <p class="hero-kicker">Hi, I’m Joseph 👋</p>
+          <h1 class="hero-title">Building software that doesn’t break under real people.</h1>
+          <p class="hero-subtitle">
+            <span id="typing-effect"></span>
+          </p>
+          <p class="hero-description">
+            Software Engineering B.Tech student at McMaster and I&amp;IT Technology Specialist / QA Tester with the
+            Ontario Public Service. I like taking complex systems, breaking them apart, and shipping things that are
+            fast, reliable, and actually usable.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary" data-hover-text="See what I’ve built">
+              <i class="fas fa-rocket"></i><span>View Projects</span>
             </a>
-        </section>
+            <a href="https://github.com/JosephCatalano" target="_blank" rel="noopener noreferrer"
+               class="btn btn-ghost" data-hover-text="GitHub Profile">
+              <i class="fab fa-github"></i><span>GitHub</span>
+            </a>
+          </div>
 
-        <section id="about" class="section bg-darker">
-            <div class="container grid-about">
-                <div class="about-text content-box">
-                    <h2><i class="fas fa-user-astronaut"></i> About Me</h2>
-                    <p>
-                        I’m a Software Engineering Technology student (B.Tech, McMaster University – online degree completion) with an advanced diploma in Computer Engineering Technology from Seneca Polytechnic (GPA 3.2/4.0).
-                        I sit at the intersection of hardware and software: from embedded systems and IoT to web apps and cloud-backed tools.
-                    </p>
-                    <p>
-                        I like taking messy problems and turning them into clean, working systems—whether that’s debugging a flaky ESP32, tightening up QA flows on an enterprise app, or shipping something people can actually click on and use.
-                    </p>
-                    <p>Outside of classes and work, I’m usually diving into:</p>
-                    <ul class="interests-list">
-                        <li><i class="fas fa-dumbbell"></i> Fitness</li>
-                        <li><i class="fas fa-book"></i> Books</li>
-                        <li><i class="fas fa-chess-knight"></i> Chess</li>
-                        <li><i class="fas fa-headphones-alt"></i> Music Production</li>
-                        <li><i class="fas fa-fish"></i> Fishing</li>
-                        <li><i class="fas fa-microchip"></i> Hacking Culture</li>
-                        <li><i class="fas fa-hockey-puck"></i> Hockey</li>
-                        <li><i class="fas fa-rocket"></i> Outer Space</li>
-                        <li><i class="fas fa-car"></i> Cars</li>
-                        <li><i class="fas fa-seedling"></i> Self Growth</li>
-                    </ul>
-                </div>
-                <div class="about-image">
-                    <img src="https://via.placeholder.com/400x500/555/eee?text=Joseph+C." alt="Joseph Catalano">
-                </div>
+          <div class="hero-meta">
+            <div class="pill">
+              <i class="fas fa-map-marker-alt"></i> Georgetown / Toronto, ON
             </div>
-        </section>
-
-        <section id="experience" class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Journey</h2>
-                <div class="timeline">
-
-                    <!-- OPS QA ROLE -->
-                    <div class="timeline-item">
-                        <div class="timeline-content card-hover content-box">
-                            <span class="timeline-date">Jan 2025 – Present</span>
-                            <h3>I&IT Technology Specialist / QA Tester</h3>
-                            <p class="company">
-                                <i class="fas fa-building"></i> Public & Business Services & Procurement (Ontario Public Service)
-                                <span class="location"><i class="fas fa-map-marker-alt"></i> Toronto, ON · On-site</span>
-                            </p>
-                            <ul>
-                                <li>Support QA activities within the Government Services Integration Cluster for provincial digital services.</li>
-                                <li>Execute manual test cases for new features and enhancements across enterprise applications.</li>
-                                <li>Log, analyze, and retest defects using OPS tools and standards to help keep services reliable.</li>
-                                <li>Review requirements and user stories for clarity and testability, collaborating with devs, BAs, and product teams.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- AO GLOBE LIFE -->
-                    <div class="timeline-item">
-                        <div class="timeline-content card-hover content-box">
-                            <span class="timeline-date">Dec 2024 – May 2025</span>
-                            <h3>Regional Producer</h3>
-                            <p class="company">
-                                <i class="fas fa-building"></i> AO Globe Life
-                                <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span>
-                            </p>
-                            <ul>
-                                <li>Met with union members over Zoom to walk through permanent benefits and coverage options.</li>
-                                <li>Developed strong communication and objection-handling skills through daily client conversations.</li>
-                                <li>Used a structured needs-analysis process to match families with appropriate protection plans.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- DIGITAL ORB -->
-                    <div class="timeline-item">
-                        <div class="timeline-content card-hover content-box">
-                            <span class="timeline-date">Jun 2022 – Aug 2023</span>
-                            <h3>Founder</h3>
-                            <p class="company">
-                                <i class="fas fa-building"></i> Digital Orb Marketing
-                                <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span>
-                            </p>
-                            <ul>
-                                <li>Started and ran a small digital marketing shop, handling everything from sales to delivery.</li>
-                                <li>Built and executed SEO, social, and content campaigns focused on measurable client growth.</li>
-                                <li>Managed client relationships, budgets, and timelines while reporting on performance and ROI.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- FOOD BASICS -->
-                    <div class="timeline-item">
-                        <div class="timeline-content card-hover content-box">
-                            <span class="timeline-date">Dec 2017 – Oct 2024</span>
-                            <h3>Front End Supervisor</h3>
-                            <p class="company">
-                                <i class="fas fa-building"></i> Food Basics
-                                <span class="location"><i class="fas fa-map-marker-alt"></i> Georgetown, ON</span>
-                            </p>
-                            <ul>
-                                <li>Led front-end staff scheduling, task delegation, and on-the-job training.</li>
-                                <li>Handled cash handling, returns, and customer escalations while keeping lines moving.</li>
-                                <li>Maintained store standards for safety, cleanliness, and policy compliance.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- AMPAC -->
-                    <div class="timeline-item">
-                        <div class="timeline-content card-hover content-box">
-                            <span class="timeline-date">Summers 2021 – 2024</span>
-                            <h3>Foreman</h3>
-                            <p class="company">
-                                <i class="fas fa-building"></i> Ampac Paving
-                                <span class="location"><i class="fas fa-map-marker-alt"></i> Concord, ON</span>
-                            </p>
-                            <ul>
-                                <li>Led a small crew on interlock and paving projects, coordinating daily tasks and resources.</li>
-                                <li>Managed on-site problem solving, time constraints, and client expectations.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="pill">
+              <i class="fas fa-bug-slash"></i> QA & Test Automation in progress
             </div>
-        </section>
-
-        <section id="projects" class="section bg-darker">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-laptop-code"></i> Featured Projects</h2>
-                <div class="filter-buttons">
-                    <button class="btn btn-filter active" data-filter="all">All</button>
-                    <button class="btn btn-filter" data-filter="iot">IoT</button>
-                    <button class="btn btn-filter" data-filter="web">Web Dev</button>
-                    <button class="btn btn-filter" data-filter="pcb">Hardware/PCB</button>
-                    <button class="btn btn-filter" data-filter="c">C/C++</button>
-                </div>
-                <div class="projects-grid">
-                    <article class="project-item card-hover content-box" data-tech="iot web c html js pcb embedded" data-modal-target="modal-iqleaf" tabindex="0" role="button" aria-haspopup="dialog">
-                        <div class="project-image">
-                            <img src="https://via.placeholder.com/400x250/007bff/eee?text=IQ-Leaf+Preview" alt="IQ-Leaf Project">
-                            <div class="project-overlay"><span>View Details</span><i class="fas fa-search-plus"></i></div>
-                        </div>
-                        <div class="project-info">
-                            <h3>IQ-Leaf System</h3>
-                            <p>End-to-end IoT plant care system with custom PCB, ESP32 firmware, and a local web dashboard for real-time monitoring and control.</p>
-                            <div class="project-tags">
-                                <span class="tag">IoT</span><span class="tag">ESP32</span><span class="tag">C</span><span class="tag">HTML</span><span class="tag">JS</span><span class="tag">PCB</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+            <div class="pill">
+              <i class="fas fa-briefcase"></i> Open to 2026 opportunities
             </div>
-        </section>
-
-        <section id="education" class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
-                <div class="education-grid">
-
-                    <div class="education-item card-hover content-box">
-                        <div class="edu-header">
-                            <i class="fas fa-university"></i>
-                            <h3>McMaster University</h3>
-                        </div>
-                        <p><strong>Bachelor of Technology (B.Tech) – Software Engineering Technology</strong></p>
-                        <p>
-                            <span class="edu-date"><i class="fas fa-calendar-alt"></i> May 2025 – Dec 2027 (In Progress)</span> |
-                            <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span>
-                        </p>
-                        <p><strong>GPA:</strong> 4.0 / 4.0</p>
-                        <p class="edu-details">
-                            Online degree completion program through the W. Booth School of Engineering Practice & Technology, focused on applied software engineering and real-world problem solving.
-                            Core areas include data structures & algorithms, software architecture & design, web & mobile development, AI & ML, and computer & network security.
-                        </p>
-                    </div>
-
-                    <div class="education-item card-hover content-box" data-anim-delay="0.1">
-                        <div class="edu-header">
-                            <i class="fas fa-school"></i>
-                            <h3>Seneca Polytechnic</h3>
-                        </div>
-                        <p><strong>Advanced Diploma – Computer Engineering Technology (ECT)</strong></p>
-                        <p>
-                            <span class="edu-date"><i class="fas fa-calendar-alt"></i> Sep 2020 – May 2024</span> |
-                            <span class="location"><i class="fas fa-map-marker-alt"></i> Newnham, ON</span>
-                        </p>
-                        <p><strong>GPA:</strong> 3.2 / 4.0</p>
-                        <p class="edu-details">
-                            Three-year applied program combining hardware and software. Gained hands-on experience with embedded C, C/C++, Java, Linux, microcontroller interfacing (ARM), digital logic/VHDL, networking, and data communications.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="section bg-darker">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-cogs"></i> Technical Skills</h2>
-                <div class="skills-container">
-                    <div class="skill-category content-box">
-                        <h3><i class="fas fa-code"></i> Languages</h3>
-                        <div class="skills-list">
-                            <span>Python</span><span>Java</span><span>C#</span><span>JavaScript</span><span>C++</span><span>C</span><span>SQL</span><span>HTML5</span><span>CSS3</span>
-                        </div>
-                    </div>
-                    <div class="skill-category content-box">
-                        <h3><i class="fas fa-layer-group"></i> Frameworks & Libraries</h3>
-                        <div class="skills-list">
-                            <span>React</span><span>Node.js</span><span>GSAP</span><span>Git</span><span>Eagle (PCB)</span><span>AWS (Familiar)</span><span>Azure (Familiar)</span>
-                        </div>
-                    </div>
-                    <div class="skill-category content-box">
-                        <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
-                        <div class="skills-list">
-                            <span>VS Code</span><span>IntelliJ</span><span>Git/GitHub</span><span>Docker (Basic)</span><span>Linux</span><span>Windows</span><span>Google Analytics</span>
-                        </div>
-                    </div>
-                    <div class="skill-category content-box">
-                        <h3><i class="fas fa-brain"></i> Methodologies & Concepts</h3>
-                        <div class="skills-list">
-                            <span>OOP</span><span>Data Structures</span><span>Algorithms</span><span>Agile (Familiar)</span><span>REST APIs</span><span>MVC</span><span>IoT</span><span>Embedded Systems</span>
-                        </div>
-                    </div>
-                    <div class="skill-category content-box">
-                        <h3><i class="fas fa-users"></i> Professional</h3>
-                        <div class="skills-list">
-                            <span>Team Leadership</span><span>Project Management</span><span>Problem-Solving</span><span>Communication</span><span>Sales</span><span>Entrepreneurship</span><span>Data Analysis</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <div class="container contact-container">
-                <h2 class="section-title"><i class="fas fa-paper-plane"></i> Get In Touch</h2>
-                <p class="contact-subtitle">Interested in collaborating or have a question? Feel free to reach out!</p>
-                <div class="contact-methods">
-                    <div class="contact-card card-hover content-box">
-                        <a href="mailto:joseph1catalano@gmail.com" aria-label="Email Joseph Catalano">
-                            <i class="fas fa-envelope-open-text"></i>
-                            <h3>Email</h3>
-                            <span>joseph1catalano@gmail.com</span>
-                        </a>
-                    </div>
-                    <div class="contact-card card-hover content-box">
-                        <a href="tel:+16474720905" aria-label="Call Joseph Catalano">
-                            <i class="fas fa-phone-alt"></i>
-                            <h3>Phone</h3>
-                            <span>(647) 472-0905</span>
-                        </a>
-                    </div>
-                    <div class="contact-card card-hover content-box">
-                        <a href="https://github.com/JosephCatalano" target="_blank" rel="noopener noreferrer" aria-label="Joseph Catalano on GitHub">
-                            <i class="fab fa-github"></i>
-                            <h3>GitHub</h3>
-                            <span>View My Repositories</span>
-                        </a>
-                    </div>
-                </div>
-                <p class="contact-location"><i class="fas fa-map-marker-alt"></i> Based in Georgetown, ON, Canada</p>
-            </div>
-        </section>
-    </main>
-
-    <footer id="footer">
-        <div class="container">
-            <p>&copy; <span id="current-year"></span> Joseph Catalano. Built with <i class="fas fa-heart" style="color: var(--accent-color);"></i> and code.</p>
-            <p style="font-size: 0.8em; margin-top: 5px;">Last updated in 2025.</p>
+          </div>
         </div>
-    </footer>
 
-    <div id="modal-iqleaf" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-iqleaf-title">
-        <div class="modal-content content-box">
-            <button class="modal-close" aria-label="Close modal">&times;</button>
-            <h2 id="modal-iqleaf-title">IQ-Leaf System</h2>
-            <img src="https://via.placeholder.com/600x350/007bff/eee?text=IQ-Leaf+Detail+(Replace+Me)" alt="IQ-Leaf Detailed View" class="modal-image">
-            <p>
-                IQ-Leaf is an end-to-end IoT solution for plant care, integrating sensors, actuators, custom hardware, and both local and remote interfaces. It showcases embedded programming, PCB design, and web development.
-            </p>
-            <p><strong>Key Features & Implementation Details:</strong></p>
+        <div class="hero-right">
+          <div class="status-card content-box">
+            <h2>Currently</h2>
             <ul>
-                <li>Real-time soil moisture sensing using a capacitive sensor connected to the ESP32’s ADC.</li>
-                <li>Automated watering via a 5V pump and relay, with safeguards to prevent over-watering.</li>
-                <li>Custom PCB designed in Eagle CAD integrating ESP32-S3, power regulation, relay driver, and sensor/connectors.</li>
-                <li>Responsive web dashboard served from the ESP32 using an async web server (HTML, CSS, JavaScript) over Wi-Fi.</li>
-                <li>ESP32-CAM video stream for visual checks, accessible through the same interface.</li>
-                <li>TFT LCD status display (SPI) for moisture levels, system state, and connection info.</li>
-                <li>Core logic written in C/C++ (Arduino framework) with libraries for Wi-Fi, web server, display, and camera.</li>
-                <li>Version control with Git throughout development.</li>
+              <li>
+                <span class="label">Role</span>
+                <span class="value">I&amp;IT Technology Specialist / QA Tester – OPS</span>
+              </li>
+              <li>
+                <span class="label">Focus</span>
+                <span class="value">QA, full-stack, finance tooling</span>
+              </li>
+              <li>
+                <span class="label">Flagship Project</span>
+                <span class="value">LedgerLeaf – personal finance dashboard</span>
+              </li>
             </ul>
-            <p><strong>Technologies Used:</strong> ESP32-S3, ESP32-CAM, C/C++, Arduino Framework, HTML, CSS, JavaScript, Eagle CAD, capacitive moisture sensor, TFT LCD, relay module, Wi-Fi, async web server, Git.</p>
-            <div class="modal-links"></div>
+          </div>
+
+          <div class="status-card content-box">
+            <h2>What I enjoy</h2>
+            <div class="chips">
+              <span class="chip">Breaking prod before users do</span>
+              <span class="chip">IoT + embedded</span>
+              <span class="chip">TypeScript & React</span>
+              <span class="chip">Systems that feel polished</span>
+            </div>
+          </div>
         </div>
+      </div>
+      <a href="#about" class="scroll-down" aria-label="Scroll down">
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div class="content-box about-text">
+          <h2 class="section-title"><i class="fas fa-user-astronaut"></i> About</h2>
+          <p>
+            I’m a software engineer in training with a hardware brain. I started in Computer Engineering Technology
+            at Seneca (embedded C, microcontrollers, networking), and I’m now completing my B.Tech in Software
+            Engineering Technology at McMaster, where I spend more time thinking about architecture, scalability,
+            and clean design.
+          </p>
+          <p>
+            At work, I’m in the Ontario Public Service helping test and harden digital services used across the
+            province. Outside work and school, I’m building tools like
+            <strong>LedgerLeaf</strong>, a modern personal finance dashboard, and <strong>IQ-Leaf</strong>, an
+            IoT plant care system.
+          </p>
+          <p>
+            I like code that’s readable, systems that are observable, and products that feel like someone actually
+            cared while building them.
+          </p>
+
+          <div class="about-tags">
+            <h3>Outside of work, you’ll catch me:</h3>
+            <ul class="interests">
+              <li><i class="fas fa-dumbbell"></i> Lifting & staying active</li>
+              <li><i class="fas fa-headphones-alt"></i> Producing music as Kaos</li>
+              <li><i class="fas fa-chess-knight"></i> Getting humbled by online chess</li>
+              <li><i class="fas fa-car"></i> Deep diving into cars & tech</li>
+              <li><i class="fas fa-seedling"></i> Chasing long-term growth</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="content-box about-side">
+          <h3>Quick snapshot</h3>
+          <ul class="snapshot-list">
+            <li><span>Stack</span><strong>TypeScript, React, Node, Python, C/C++, SQL</strong></li>
+            <li><span>Domains</span><strong>QA & testing, fintech tooling, IoT, web apps</strong></li>
+            <li><span>Superpower</span><strong>Taking chaos and turning it into a plan</strong></li>
+            <li><span>Goal</span><strong>Ship reliable systems people can trust with their money & data</strong></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section bg-alt">
+      <div class="container">
+        <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
+
+        <div class="timeline">
+          <!-- OPS -->
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content content-box">
+              <div class="timeline-header">
+                <h3>I&amp;IT Technology Specialist / QA Tester</h3>
+                <span class="timeline-date">Jan 2025 – Present · Toronto, ON · On-site</span>
+              </div>
+              <p class="timeline-company">
+                <i class="fas fa-building"></i>
+                Public &amp; Business Services &amp; Procurement (Ontario Public Service)
+              </p>
+              <ul>
+                <li>Support QA for digital services in the Government Services Integration Cluster (GSIC).</li>
+                <li>Write and execute manual test cases for new features across enterprise applications.</li>
+                <li>Log, analyze, and retest defects using OPS tooling and standards.</li>
+                <li>Review requirements and user stories for clarity, edge cases, and testability.</li>
+                <li>Work closely with developers and BAs to prevent issues from reaching production.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- AO Globe Life -->
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content content-box">
+              <div class="timeline-header">
+                <h3>Regional Producer</h3>
+                <span class="timeline-date">Dec 2024 – May 2025 · Remote</span>
+              </div>
+              <p class="timeline-company">
+                <i class="fas fa-building"></i>
+                AO Globe Life
+              </p>
+              <ul>
+                <li>Met with union members over Zoom to walk through permanent benefits and coverage options.</li>
+                <li>Built strong communication, active listening, and objection-handling skills.</li>
+                <li>Used a structured needs-analysis process to recommend policies that actually fit families.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Digital Orb -->
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content content-box">
+              <div class="timeline-header">
+                <h3>Founder</h3>
+                <span class="timeline-date">Jun 2022 – Aug 2023 · Remote</span>
+              </div>
+              <p class="timeline-company">
+                <i class="fas fa-building"></i>
+                Digital Orb Marketing
+              </p>
+              <ul>
+                <li>Started and ran a small digital marketing agency end-to-end (sales, delivery, ops).</li>
+                <li>Planned and executed SEO, social, and content campaigns with measurable growth goals.</li>
+                <li>Managed client relationships, timelines, and budgets while reporting on performance and ROI.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Food Basics -->
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content content-box">
+              <div class="timeline-header">
+                <h3>Front End Supervisor</h3>
+                <span class="timeline-date">Dec 2017 – Oct 2024 · Georgetown, ON · On-site</span>
+              </div>
+              <p class="timeline-company">
+                <i class="fas fa-building"></i>
+                Food Basics
+              </p>
+              <ul>
+                <li>Led front-end staff scheduling, training, and day-to-day operations.</li>
+                <li>Handled cash handling, refunds, and customer escalations during busy hours.</li>
+                <li>Kept store standards tight around safety, cleanliness, and policy compliance.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Ampac -->
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content content-box">
+              <div class="timeline-header">
+                <h3>Foreman (Seasonal)</h3>
+                <span class="timeline-date">Summers 2021 – 2024 · Concord, ON</span>
+              </div>
+              <p class="timeline-company">
+                <i class="fas fa-building"></i>
+                Ampac Paving
+              </p>
+              <ul>
+                <li>Led a small crew on interlock and paving projects, coordinating day-to-day execution.</li>
+                <li>Managed on-site problem solving, time constraints, and client expectations face-to-face.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title"><i class="fas fa-laptop-code"></i> Projects</h2>
+
+        <div class="project-filters">
+          <button class="btn-filter active" data-filter="all">All</button>
+          <button class="btn-filter" data-filter="web">Web & SaaS</button>
+          <button class="btn-filter" data-filter="iot">IoT & Embedded</button>
+          <button class="btn-filter" data-filter="qa">QA & Tooling</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- LedgerLeaf -->
+          <article class="project-card content-box project-item"
+                   data-tech="web qa"
+                   data-modal-target="modal-ledgerleaf"
+                   tabindex="0"
+                   role="button"
+                   aria-haspopup="dialog">
+            <div class="project-header">
+              <span class="project-tag web">Web / SaaS</span>
+              <h3>LedgerLeaf – Personal Finance Dashboard</h3>
+            </div>
+            <p class="project-body">
+              Full-stack personal finance app designed to replace bloated budgeting tools. Clean UI, flexible
+              categorization, and a focus on clear cashflow over noise.
+            </p>
+            <ul class="project-points">
+              <li>Built with modern web stack (Next.js / TypeScript style), API-driven backend, and auth-ready design.</li>
+              <li>Supports CSV-based transaction import, category rules, and monthly breakdowns.</li>
+              <li>Designed around performance, clarity, and being something you’d actually check every week.</li>
+            </ul>
+            <div class="project-footer">
+              <div class="project-tech-chips">
+                <span>TypeScript</span><span>React</span><span>Next.js-style</span><span>PostgreSQL</span><span>Prisma</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/JosephCatalano/ledgerleaf" target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- IQ Leaf -->
+          <article class="project-card content-box project-item"
+                   data-tech="iot"
+                   data-modal-target="modal-iqleaf"
+                   tabindex="0"
+                   role="button"
+                   aria-haspopup="dialog">
+            <div class="project-header">
+              <span class="project-tag iot">IoT</span>
+              <h3>IQ-Leaf – Smart Plant Care System</h3>
+            </div>
+            <p class="project-body">
+              End-to-end IoT system that monitors soil moisture and waters plants automatically, with a local web
+              dashboard, live video, and on-device display.
+            </p>
+            <ul class="project-points">
+              <li>Custom PCB with ESP32-S3, power regulation, relay driver, and sensor connectors.</li>
+              <li>Capacitive sensor + water pump controlled via moisture thresholds and safety logic.</li>
+              <li>Async web UI served from the microcontroller for real-time status and manual overrides.</li>
+            </ul>
+            <div class="project-footer">
+              <div class="project-tech-chips">
+                <span>ESP32-S3</span><span>C/C++</span><span>Arduino</span><span>HTML/CSS/JS</span><span>Eagle CAD</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- QA Toolkit -->
+          <article class="project-card content-box project-item"
+                   data-tech="qa web"
+                   data-modal-target="modal-qa"
+                   tabindex="0"
+                   role="button"
+                   aria-haspopup="dialog">
+            <div class="project-header">
+              <span class="project-tag qa">QA</span>
+              <h3>OPS QA Toolkit (Concept)</h3>
+            </div>
+            <p class="project-body">
+              A growing internal toolkit concept inspired by my OPS role: lightweight utilities to structure test cases,
+              track runs, and pull insights out of messy bug data.
+            </p>
+            <ul class="project-points">
+              <li>Focus on practical workflows: test suites, regression tracking, and coverage summaries.</li>
+              <li>Designed with government-style constraints in mind (auditability, clarity, repeatability).</li>
+              <li>Explores how to bridge manual testing with future automation efforts.</li>
+            </ul>
+            <div class="project-footer">
+              <div class="project-tech-chips">
+                <span>Python</span><span>TypeScript</span><span>QA workflows</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section bg-alt">
+      <div class="container">
+        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+        <div class="education-grid">
+          <article class="education-card content-box">
+            <div class="edu-header">
+              <div class="edu-icon">
+                <i class="fas fa-university"></i>
+              </div>
+              <div>
+                <h3>McMaster University</h3>
+                <p class="edu-subtitle">Bachelor of Technology (B.Tech) – Software Engineering Technology</p>
+              </div>
+            </div>
+            <p class="edu-meta">
+              <span><i class="fas fa-calendar-alt"></i> May 2025 – Dec 2027 (In Progress)</span>
+              <span><i class="fas fa-wifi"></i> Fully Online</span>
+            </p>
+            <p class="edu-body">
+              Degree completion program through the W. Booth School of Engineering Practice &amp; Technology, focused on
+              applied software engineering, architecture, and real-world systems.
+            </p>
+            <ul class="edu-list">
+              <li>Data Structures &amp; Algorithms</li>
+              <li>Software Architecture &amp; Design</li>
+              <li>Web &amp; Mobile Development</li>
+              <li>AI &amp; Machine Learning</li>
+              <li>Computer &amp; Network Security</li>
+            </ul>
+          </article>
+
+          <article class="education-card content-box">
+            <div class="edu-header">
+              <div class="edu-icon">
+                <i class="fas fa-school"></i>
+              </div>
+              <div>
+                <h3>Seneca Polytechnic</h3>
+                <p class="edu-subtitle">Advanced Diploma – Computer Engineering Technology (ECT)</p>
+              </div>
+            </div>
+            <p class="edu-meta">
+              <span><i class="fas fa-calendar-alt"></i> Sep 2020 – May 2024</span>
+              <span><i class="fas fa-star-half-alt"></i> GPA: 3.2 / 4.0</span>
+            </p>
+            <p class="edu-body">
+              Three-year applied program covering hardware, software, and networks. Gave me a low-level understanding
+              of how the stuff we build actually runs.
+            </p>
+            <ul class="edu-list">
+              <li>C / C++ &amp; Java programming</li>
+              <li>Linux &amp; Operating Systems</li>
+              <li>Microcontroller Interfacing (ARM)</li>
+              <li>Digital Logic &amp; VHDL</li>
+              <li>Data Communications &amp; Networking</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title"><i class="fas fa-cogs"></i> Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card content-box">
+            <h3><i class="fas fa-code"></i> Languages</h3>
+            <div class="skills-list">
+              <span>TypeScript</span><span>JavaScript</span><span>Python</span><span>Java</span>
+              <span>C</span><span>C++</span><span>C#</span><span>SQL</span><span>HTML</span><span>CSS</span>
+            </div>
+          </div>
+
+          <div class="skill-card content-box">
+            <h3><i class="fas fa-layer-group"></i> Frameworks &amp; Tools</h3>
+            <div class="skills-list">
+              <span>React</span><span>Next.js-style</span><span>Node.js</span><span>GSAP</span>
+              <span>Prisma</span><span>Docker (basic)</span><span>Git / GitHub</span><span>Eagle CAD</span>
+            </div>
+          </div>
+
+          <div class="skill-card content-box">
+            <h3><i class="fas fa-microchip"></i> Systems &amp; Domains</h3>
+            <div class="skills-list">
+              <span>Embedded Systems</span><span>IoT</span><span>ESP32</span><span>Linux</span>
+              <span>Networking basics</span><span>REST APIs</span><span>MVC</span>
+            </div>
+          </div>
+
+          <div class="skill-card content-box">
+            <h3><i class="fas fa-bug-slash"></i> QA &amp; Craft</h3>
+            <div class="skills-list">
+              <span>Test Case Design</span><span>Defect Reporting</span><span>Regression Testing</span>
+              <span>Documentation</span><span>Code Quality</span><span>Observability mindset</span>
+            </div>
+          </div>
+
+          <div class="skill-card content-box">
+            <h3><i class="fas fa-users"></i> People &amp; Leadership</h3>
+            <div class="skills-list">
+              <span>Team Leadership</span><span>Mentoring</span><span>Sales &amp; Communication</span>
+              <span>Client Handling</span><span>Problem Solving</span><span>Time Management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section bg-alt">
+      <div class="container contact-container">
+        <h2 class="section-title"><i class="fas fa-paper-plane"></i> Contact</h2>
+        <p class="contact-text">
+          Want to talk about an internship, a project, or an idea you want to ship? Send me a message —
+          I actually check my inbox.
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-card content-box">
+            <i class="fas fa-envelope-open-text"></i>
+            <h3>Email</h3>
+            <a href="mailto:joseph1catalano@gmail.com">joseph1catalano@gmail.com</a>
+          </div>
+
+          <div class="contact-card content-box">
+            <i class="fas fa-phone-alt"></i>
+            <h3>Phone</h3>
+            <a href="tel:+16474720905">(647) 472-0905</a>
+          </div>
+
+          <div class="contact-card content-box">
+            <i class="fab fa-github"></i>
+            <h3>GitHub</h3>
+            <a href="https://github.com/JosephCatalano" target="_blank" rel="noopener noreferrer">
+              github.com/JosephCatalano
+            </a>
+          </div>
+        </div>
+
+        <p class="contact-location">
+          <i class="fas fa-map-marker-alt"></i> Based in Georgetown, ON · Available remotely across Canada
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="container footer-inner">
+      <p>
+        &copy; <span id="current-year"></span> Joseph Catalano —
+        Crafted with <i class="fas fa-heart"></i> and a lot of <span>console.log</span>s.
+      </p>
     </div>
+  </footer>
 
-    <script defer src="script.js"></script>
+  <!-- PROJECT MODALS -->
 
+  <!-- LedgerLeaf Modal -->
+  <div id="modal-ledgerleaf" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-ledgerleaf-title">
+    <div class="modal-content content-box">
+      <button class="modal-close" aria-label="Close LedgerLeaf details">&times;</button>
+      <h2 id="modal-ledgerleaf-title">LedgerLeaf – Personal Finance Dashboard</h2>
+      <p>
+        LedgerLeaf is my answer to overcomplicated budgeting apps. It focuses on clear cashflow, frictionless import,
+        and giving you a real sense of “Can I afford this?” without a 40-step setup.
+      </p>
+      <ul>
+        <li>Backed by a relational database (PostgreSQL-style) with a schema designed around transactions, accounts, and categories.</li>
+        <li>Inspired by a Next.js + Prisma stack: API routes, React components, and server-side thinking.</li>
+        <li>Supports CSV import from common banking exports with mapping and basic validation.</li>
+        <li>Includes monthly breakdowns, category summaries, and projected runway based on historical spend.</li>
+      </ul>
+      <p><strong>Tech Highlights:</strong> TypeScript, React, Next.js-style architecture, SQL/Prisma-style ORM, Docker-ready mindset, GitHub-based CI.</p>
+      <div class="modal-links">
+        <a href="https://github.com/JosephCatalano/ledgerleaf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <i class="fab fa-github"></i><span>View Repository</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- IQ Leaf Modal -->
+  <div id="modal-iqleaf" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-iqleaf-title">
+    <div class="modal-content content-box">
+      <button class="modal-close" aria-label="Close IQ-Leaf details">&times;</button>
+      <h2 id="modal-iqleaf-title">IQ-Leaf – Smart Plant Care System</h2>
+      <p>
+        IQ-Leaf is an end-to-end IoT solution for plant care, integrating sensors, actuators, custom hardware,
+        and both local and remote interfaces.
+      </p>
+      <ul>
+        <li>Real-time soil moisture sensing via capacitive sensor on ESP32 ADC (more durable than resistive probes).</li>
+        <li>5V water pump controlled by relay module with guardrails to avoid over-watering and pump burnout.</li>
+        <li>Custom PCB (Eagle CAD) combining ESP32-S3, power regulation, relay driver, and modular connectors.</li>
+        <li>Responsive web dashboard served from the ESP32 using an async web server (HTML/CSS/JS).</li>
+        <li>ESP32-CAM video stream for live visual checks, integrated into the web UI.</li>
+        <li>TFT LCD over SPI showing moisture level, status, and Wi-Fi details.</li>
+        <li>Core logic written in C/C++ (Arduino framework) and tracked with Git.</li>
+      </ul>
+      <p><strong>Tech Highlights:</strong> ESP32-S3, ESP32-CAM, C/C++, Arduino, Eagle CAD, async web server, IoT design, embedded debugging.</p>
+    </div>
+  </div>
+
+  <!-- QA Toolkit Modal -->
+  <div id="modal-qa" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-qa-title">
+    <div class="modal-content content-box">
+      <button class="modal-close" aria-label="Close QA Toolkit details">&times;</button>
+      <h2 id="modal-qa-title">OPS QA Toolkit (Concept)</h2>
+      <p>
+        A concept project shaped by real OPS experience: a simple but opinionated toolkit to keep manual testing organized
+        as systems grow.
+      </p>
+      <ul>
+        <li>Test suite builder with tags for feature, risk level, and release train.</li>
+        <li>Run history with quick filters for regressions, flaky areas, and high-impact defects.</li>
+        <li>Exports test runs in formats that make sense for audits and internal reporting.</li>
+        <li>Designed to sit nicely beside existing government tooling instead of trying to replace everything.</li>
+      </ul>
+      <p><strong>Tech Highlights:</strong> Python or TypeScript backend, lightweight web UI, focus on data model & workflows over visual flash.</p>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
