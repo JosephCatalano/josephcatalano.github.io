@@ -241,4 +241,117 @@
       gaugeVal.textContent = level >= 68 ? `${level}% · watered` : `${level}%`;
     }, 1400);
   }
+
+  /* Builds filter tabs */
+  const filterBtns = $$(".filter-btn");
+  const buildCards = $$("#builds-grid .build");
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const cat = btn.dataset.filter;
+      filterBtns.forEach((b) => {
+        const active = b === btn;
+        b.classList.toggle("is-active", active);
+        b.setAttribute("aria-selected", String(active));
+      });
+      buildCards.forEach((card) => {
+        const cats = (card.dataset.cat || "").split(" ");
+        const match = cat === "all" || cats.includes(cat);
+        card.classList.toggle("is-filtered-out", !match);
+      });
+    });
+  });
+
+  /* Command Palette (Cmd+K / Ctrl+K) */
+  const cmdBackdrop = $("#cmd-backdrop");
+  const cmdInput = $("#cmd-input");
+  const cmdTrigger = $("#cmd-trigger");
+  const cmdClose = $("#cmd-close");
+  const cmdItems = $$("#cmd-list li");
+  let selectedIdx = 0;
+
+  function visibleCmdItems() {
+    return cmdItems.filter((li) => !li.hidden);
+  }
+
+  function highlightCmd(idx) {
+    const vis = visibleCmdItems();
+    if (!vis.length) return;
+    selectedIdx = (idx + vis.length) % vis.length;
+    cmdItems.forEach((li) => li.classList.remove("is-selected"));
+    vis[selectedIdx].classList.add("is-selected");
+    vis[selectedIdx].scrollIntoView({ block: "nearest" });
+  }
+
+  function openCmd() {
+    if (!cmdBackdrop) return;
+    cmdBackdrop.hidden = false;
+    cmdInput.value = "";
+    cmdItems.forEach((li) => (li.hidden = false));
+    highlightCmd(0);
+    setTimeout(() => cmdInput.focus(), 10);
+  }
+
+  function closeCmd() {
+    if (!cmdBackdrop) return;
+    cmdBackdrop.hidden = true;
+  }
+
+  function runCmdItem(li) {
+    if (!li) return;
+    const action = li.dataset.action;
+    closeCmd();
+    if (action === "goto") {
+      const el = $(li.dataset.target);
+      el?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+    } else if (action === "copy-email") {
+      navigator.clipboard?.writeText("joseph1catalano@gmail.com").then(() => showToast("Email copied to clipboard"));
+    } else if (action === "theme") {
+      $("#theme-toggle")?.click();
+    } else if (action === "link") {
+      window.open(li.dataset.url, "_blank", "noopener,noreferrer");
+    }
+  }
+
+  cmdTrigger?.addEventListener("click", openCmd);
+  cmdClose?.addEventListener("click", closeCmd);
+  cmdBackdrop?.addEventListener("click", (e) => {
+    if (e.target === cmdBackdrop) closeCmd();
+  });
+
+  cmdInput?.addEventListener("input", () => {
+    const q = cmdInput.value.trim().toLowerCase();
+    cmdItems.forEach((li) => {
+      li.hidden = !li.textContent.toLowerCase().includes(q);
+    });
+    highlightCmd(0);
+  });
+
+  cmdItems.forEach((li) => {
+    li.addEventListener("click", () => runCmdItem(li));
+  });
+
+  addEventListener("keydown", (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+      e.preventDefault();
+      if (cmdBackdrop?.hidden) openCmd();
+      else closeCmd();
+      return;
+    }
+    if (cmdBackdrop && !cmdBackdrop.hidden) {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeCmd();
+      } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        highlightCmd(selectedIdx + 1);
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        highlightCmd(selectedIdx - 1);
+      } else if (e.key === "Enter") {
+        e.preventDefault();
+        const vis = visibleCmdItems();
+        runCmdItem(vis[selectedIdx]);
+      }
+    }
+  });
 })();
