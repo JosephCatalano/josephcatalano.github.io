@@ -408,17 +408,38 @@
               </ul>
               <ul class="tags"><li>Next.js</li><li>NestJS</li><li>Fastify</li><li>TypeScript</li><li>PostgreSQL</li><li>Drizzle</li><li>Inngest</li><li>Clerk</li><li>Cloudflare R2</li></ul>
             </div>
-            <div class="build-visual" aria-hidden="true">
-              <div class="mock-card">
-                <p class="mock-k">eligibility.evaluate(profile)</p>
+            <div class="build-visual">
+              <div class="mock-card elig" id="elig">
+                <div class="elig-head">
+                  <p class="mock-k">eligibility.evaluate(profile)</p>
+                  <p class="demo-label">Try it</p>
+                </div>
                 <p class="mock-title">Provincial student grant</p>
-                <ul class="mock-rules">
-                  <li><span class="ok"></span> Residency: Ontario</li>
-                  <li><span class="ok"></span> Enrolment: full-time</li>
-                  <li><span class="ok"></span> Income within threshold</li>
-                  <li><span class="warn"></span> Renewal due in 21 days</li>
+                <div class="elig-inputs">
+                  <label>Province
+                    <select id="el-prov">
+                      <option value="Ontario">Ontario</option>
+                      <option value="British Columbia">British Columbia</option>
+                      <option value="Quebec">Quebec</option>
+                    </select>
+                  </label>
+                  <label>Enrolment
+                    <select id="el-enrol">
+                      <option value="full-time">Full-time</option>
+                      <option value="part-time">Part-time</option>
+                    </select>
+                  </label>
+                  <label class="elig-income">Family income <output id="el-income-out" for="el-income">$48k</output>
+                    <input type="range" id="el-income" min="20" max="160" step="2" value="48" />
+                  </label>
+                </div>
+                <ul class="mock-rules" id="el-rules">
+                  <li data-rule="prov"><span class="ok"></span> <em>Residency: Ontario</em></li>
+                  <li data-rule="enrol"><span class="ok"></span> <em>Enrolment: full-time</em></li>
+                  <li data-rule="income"><span class="ok"></span> <em>Income within threshold</em></li>
+                  <li><span class="warn"></span> <em>Renewal due in 21 days</em></li>
                 </ul>
-                <p class="mock-result">ELIGIBLE · 3 of 3 rules · traceable</p>
+                <p class="mock-result" id="el-result" aria-live="polite">ELIGIBLE · 3 of 3 rules · traceable</p>
               </div>
             </div>
           </article>
@@ -554,9 +575,10 @@
             <p class="build-meta">Linux Internals, Networking &amp; Embedded C/C++ · 2024 to 2026</p>
             <h3>KubeNode Agent, Embedded LogBridge, NetProbe C &amp; IQ-Leaf</h3>
             <p>Lightweight C11 Linux monitoring daemon reading <code>/proc</code> (procfs) and POSIX sockets with &lt;1% CPU overhead, paired with a multithreaded Pthreads QEMU log streamer and raw socket DNS/DHCP/SNMP inspector.</p>
-            <div class="gauge" aria-hidden="true">
-              <div class="gauge-bar"><span></span></div>
-              <p><span>IQ-Leaf custom PCB soil moisture · FreeRTOS</span><span class="gauge-val">42%</span></p>
+            <div class="gauge">
+              <div class="gauge-bar" aria-hidden="true"><span></span></div>
+              <p><span>IQ-Leaf soil moisture · FreeRTOS</span><span class="gauge-val" aria-live="polite">42%</span></p>
+              <button type="button" class="gauge-btn" id="water-btn">Water now</button>
             </div>
             <p class="build-note">Checked with GDB, Valgrind, cppcheck, and Linux <code>tc</code>/<code>iptables</code> fault injection; paired with <strong>IQ-Leaf</strong> (custom Eagle CAD PCB, ESP32-S3, FreeRTOS irrigation &amp; camera server).</p>
             <ul class="tags"><li>C11 &amp; C++</li><li>Linux (procfs / systemd / eBPF)</li><li>POSIX Threads &amp; Sockets</li><li>QEMU / KVM</li><li>GDB &amp; Valgrind</li><li>SNMP / TCP / DNS</li><li>ESP32-S3 &amp; FreeRTOS</li></ul>

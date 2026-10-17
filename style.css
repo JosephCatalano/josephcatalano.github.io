@@ -457,6 +457,15 @@ svg { display: block; }
   transition: border-color 0.3s, transform 0.3s var(--ease), opacity 0.25s;
 }
 .build.is-filtered-out { display: none; }
+.build { position: relative; isolation: isolate; }
+.build::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--glow), transparent 60%);
+  opacity: 0; transition: opacity 0.3s;
+}
+.build:hover::after { opacity: 1; }
+.build.just-shown { animation: popin 0.45s var(--ease); }
+@keyframes popin { from { opacity: 0; transform: translateY(12px) scale(0.98); } }
 .build:hover { border-color: var(--line-strong); transform: translateY(-4px); }
 .build-lg { grid-column: span 3; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
 .build-copy { display: flex; flex-direction: column; gap: 14px; }
@@ -476,6 +485,28 @@ svg { display: block; }
 }
 .mini-terminal span { color: var(--ink); }
 .mini-terminal .ok-line { color: var(--pass); }
+.mini-terminal p { min-height: 1.5em; }
+.term-bar { display: flex; align-items: center; gap: 6px; padding-bottom: 8px; margin-bottom: 4px; border-bottom: 1px solid var(--line); }
+.term-bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--line-strong); }
+.term-bar i:first-child { background: var(--danger); opacity: 0.7; }
+.term-bar i:nth-child(2) { background: var(--accent); opacity: 0.7; }
+.term-bar i:nth-child(3) { background: var(--pass); opacity: 0.7; }
+.term-run {
+  margin-left: auto; padding: 3px 10px; border-radius: 6px; border: 1px solid var(--line-strong);
+  background: var(--surface); font-family: var(--font-mono); font-size: 11px; color: var(--signal);
+  transition: border-color 0.2s, color 0.2s;
+}
+.term-run:hover:not(:disabled) { border-color: var(--signal); }
+.term-run:disabled { opacity: 0.5; cursor: progress; }
+.mini-terminal.running p:first-of-type span::after { content: "\258B"; margin-left: 2px; animation: blink 0.8s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.mini-terminal .spin { color: var(--muted); }
+.mini-terminal .spin::before {
+  content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 8px; vertical-align: -1px;
+  border: 1.5px solid currentColor; border-right-color: transparent; border-radius: 50%;
+  animation: rot 0.6s linear infinite;
+}
+@keyframes rot { to { transform: rotate(360deg); } }
 
 .build-visual { display: grid; place-items: center; padding: 24px; border-radius: var(--radius); background: var(--bg); border: 1px solid var(--line); min-height: 280px; }
 .mock-card { width: 100%; max-width: 360px; padding: 20px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line-strong); box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.5); transform: rotate(-2deg); transition: transform 0.5s var(--ease); }
@@ -490,11 +521,44 @@ svg { display: block; }
 .mock-rules .warn { background: color-mix(in srgb, var(--accent) 20%, transparent); }
 .mock-rules .warn::after { content: "!"; color: var(--accent); font-weight: 700; }
 .mock-result { font-family: var(--font-mono); font-size: 11px; padding: 8px 10px; border-radius: 6px; background: color-mix(in srgb, var(--pass) 14%, transparent); color: var(--pass); letter-spacing: 0.04em; }
+.mock-card:focus-within { transform: none; }
+.mock-rules em { font-style: normal; transition: color 0.2s; }
+.mock-rules .fail { background: color-mix(in srgb, var(--danger) 20%, transparent); }
+.mock-rules .fail::after { content: "\2715"; color: var(--danger); }
+.mock-rules li:has(.fail) em { color: var(--danger); }
+.mock-result.is-fail { background: color-mix(in srgb, var(--danger) 14%, transparent); color: var(--danger); }
+.elig-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.elig-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+.elig-inputs label { display: grid; gap: 4px; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.elig-inputs select {
+  font: 13px var(--font-body); color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line-strong); border-radius: 6px; padding: 6px 8px;
+}
+.elig-income { grid-column: span 2; }
+.elig-income output { color: var(--ink); font-size: 12px; text-transform: none; float: right; }
+.elig-income input[type="range"] { width: 100%; accent-color: var(--accent); }
 
 .boundaries { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 12px; border-radius: 12px; border: 1px dashed var(--line-strong); }
 .boundaries span { font-family: var(--font-mono); font-size: 11px; padding: 8px; border-radius: 6px; background: var(--bg); border: 1px solid var(--line); text-align: center; transition: border-color 0.3s, color 0.3s; }
 .boundaries span:nth-child(-n+2) { color: var(--signal); }
 .build:hover .boundaries span { border-color: var(--line-strong); }
+.boundaries span.is-done { color: var(--ink); border-color: var(--line-strong); }
+.boundaries span.is-lit {
+  color: var(--accent-ink); background: var(--accent); border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--glow);
+}
+.flow-status { grid-column: 1 / -1; font-family: var(--font-mono); font-size: 11px; color: var(--muted); padding: 2px 2px 0; }
+.flow-status b { color: var(--signal); font-weight: 500; }
+
+.gauge-btn {
+  margin-top: 10px; width: 100%; padding: 7px 10px; border-radius: 8px;
+  border: 1px dashed var(--line-strong); background: transparent;
+  font-family: var(--font-mono); font-size: 11px; color: var(--signal);
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.gauge-btn:hover:not(:disabled) { border-color: var(--signal); background: color-mix(in srgb, var(--signal) 8%, transparent); }
+.gauge-btn:disabled { opacity: 0.6; cursor: progress; }
+.gauge.pumping .gauge-bar span { background: linear-gradient(90deg, var(--signal), var(--signal)); }
 
 .gauge { padding: 14px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line); }
 .gauge-bar { height: 10px; border-radius: 10px; background: var(--surface-2); overflow: hidden; margin-bottom: 8px; }

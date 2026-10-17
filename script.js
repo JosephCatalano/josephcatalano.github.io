@@ -230,17 +230,170 @@
     render();
   }
 
-  /* IQ-Leaf gauge drift */
-  const gaugeFill = $(".gauge-bar span");
-  const gaugeVal = $(".gauge-val");
-  if (gaugeFill && !reduceMotion) {
+  /* IQ-Leaf gauge drift + manual pump */
+  const gauge = $(".gauge");
+  if (gauge) {
+    const gaugeFill = $(".gauge-bar span", gauge);
+    const gaugeVal = $(".gauge-val", gauge);
+    const waterBtn = $("#water-btn");
     let level = 42;
-    setInterval(() => {
-      level = level < 30 ? 68 : level - 2;
+    let pumping = false;
+    const draw = (suffix = "") => {
       gaugeFill.style.width = `${level}%`;
-      gaugeVal.textContent = level >= 68 ? `${level}% · watered` : `${level}%`;
-    }, 1400);
+      gaugeVal.textContent = `${level}%${suffix}`;
+    };
+    if (!reduceMotion) {
+      setInterval(() => {
+        if (pumping) return;
+        level = level < 30 ? 68 : level - 2;
+        draw(level >= 68 ? " · auto-watered" : "");
+      }, 1400);
+    }
+    waterBtn?.addEventListener("click", () => {
+      pumping = true;
+      waterBtn.disabled = true;
+      waterBtn.textContent = "pump: ON · relay closed";
+      gauge.classList.add("pumping");
+      level = 72;
+      draw(" · pumping");
+      setTimeout(() => {
+        pumping = false;
+        gauge.classList.remove("pumping");
+        waterBtn.disabled = false;
+        waterBtn.textContent = "Water now";
+        draw(" · watered");
+      }, 1800);
+    });
   }
+
+  /* Build card cursor spotlight */
+  $("#builds-grid")?.addEventListener("pointermove", (e) => {
+    const card = e.target.closest(".build");
+    if (!card) return;
+    const r = card.getBoundingClientRect();
+    card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+    card.style.setProperty("--my", `${e.clientY - r.top}px`);
+  });
+
+  /* RevealAid eligibility evaluator (illustrative rules) */
+  const elig = $("#elig");
+  if (elig) {
+    const prov = $("#el-prov");
+    const enrol = $("#el-enrol");
+    const income = $("#el-income");
+    const incomeOut = $("#el-income-out");
+    const result = $("#el-result");
+    const LIMIT = 100;
+    const rules = {
+      prov: () => [prov.value === "Ontario", `Residency: ${prov.value}${prov.value === "Ontario" ? "" : " (requires Ontario)"}`],
+      enrol: () => [enrol.value === "full-time", `Enrolment: ${enrol.value}${enrol.value === "full-time" ? "" : " (requires full-time)"}`],
+      income: () => [Number(income.value) <= LIMIT, Number(income.value) <= LIMIT ? "Income within threshold" : `Income over $${LIMIT}k threshold`],
+    };
+    const evaluate = () => {
+      incomeOut.textContent = `$${income.value}k`;
+      const failed = [];
+      Object.entries(rules).forEach(([key, fn]) => {
+        const [pass, label] = fn();
+        const li = $(`[data-rule="${key}"]`, elig);
+        $("span", li).className = pass ? "ok" : "fail";
+        $("em", li).textContent = label;
+        if (!pass) failed.push(key);
+      });
+      const passed = 3 - failed.length;
+      result.classList.toggle("is-fail", failed.length > 0);
+      result.textContent = failed.length
+        ? `NOT ELIGIBLE · ${passed} of 3 rules · failed: ${failed.map((k) => ({ prov: "residency", enrol: "enrolment", income: "income" })[k]).join(", ")}`
+        : "ELIGIBLE · 3 of 3 rules · traceable";
+    };
+    [prov, enrol, income].forEach((el) => el.addEventListener("input", evaluate));
+    evaluate();
+  }
+
+  /* Runnable mini terminals */
+  $$(".mini-terminal").forEach((term) => {
+    const lines = $$("p", term);
+    const cmdSpan = $("span", lines[0]);
+    if (!cmdSpan) return;
+    term.removeAttribute("aria-hidden");
+    const cmdText = cmdSpan.textContent;
+    const outLines = lines.slice(1);
+    const outputs = outLines.map((p) => p.textContent);
+
+    const bar = document.createElement("div");
+    bar.className = "term-bar";
+    bar.append(...[0, 1, 2].map(() => document.createElement("i")));
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "term-run";
+    btn.textContent = "▶ run";
+    btn.setAttribute("aria-label", `Run ${cmdText}`);
+    bar.append(btn);
+    term.prepend(bar);
+
+    let timers = [];
+    const play = () => {
+      timers.forEach(clearTimeout);
+      timers = [];
+      btn.disabled = true;
+      term.classList.add("running");
+      cmdSpan.textContent = "";
+      outLines.forEach((p) => { p.textContent = ""; p.classList.remove("spin"); });
+      let t = 0;
+      [...cmdText].forEach((ch) => timers.push(setTimeout(() => (cmdSpan.textContent += ch), (t += 22))));
+      outLines.forEach((p, i) => {
+        timers.push(setTimeout(() => { p.classList.add("spin"); p.textContent = "running…"; }, (t += 220)));
+        timers.push(setTimeout(() => { p.classList.remove("spin"); p.textContent = outputs[i]; }, (t += 650)));
+      });
+      timers.push(setTimeout(() => {
+        term.classList.remove("running");
+        btn.disabled = false;
+        btn.textContent = "↻ re-run";
+      }, (t += 60)));
+    };
+    btn.addEventListener("click", play);
+
+    if (!reduceMotion) {
+      const io = new IntersectionObserver(([entry]) => {
+        if (!entry.isIntersecting) return;
+        io.disconnect();
+        play();
+      }, { threshold: 0.7 });
+      io.observe(term);
+    }
+  });
+
+  /* Pipeline flows: trace a request through each boundary while in view */
+  $$(".boundaries").forEach((box) => {
+    const nodes = $$("span", box);
+    if (!nodes.length) return;
+    const status = document.createElement("p");
+    status.className = "flow-status";
+    box.append(status);
+    let idx = -1;
+    let timer = null;
+    const step = () => {
+      idx = (idx + 1) % (nodes.length + 1);
+      nodes.forEach((n, i) => {
+        n.classList.toggle("is-lit", i === idx);
+        n.classList.toggle("is-done", i < idx);
+      });
+      status.innerHTML = idx < nodes.length
+        ? `stage ${idx + 1}/${nodes.length} → <b></b>`
+        : `✓ traced through ${nodes.length} boundaries`;
+      if (idx < nodes.length) status.querySelector("b").textContent = nodes[idx].textContent;
+    };
+    const start = () => { if (!timer) { step(); timer = setInterval(step, 900); } };
+    const stop = () => { clearInterval(timer); timer = null; };
+    box.addEventListener("pointerenter", stop);
+    box.addEventListener("pointerleave", () => { if (!reduceMotion) start(); });
+    nodes.forEach((n, i) => n.addEventListener("pointerenter", () => { idx = i - 1; step(); }));
+
+    if (reduceMotion) {
+      status.textContent = `${nodes.length} boundaries`;
+      return;
+    }
+    new IntersectionObserver(([entry]) => (entry.isIntersecting ? start() : stop()), { threshold: 0.4 }).observe(box);
+  });
 
   /* Builds filter tabs */
   const filterBtns = $$(".filter-btn");
@@ -256,7 +409,13 @@
       buildCards.forEach((card) => {
         const cats = (card.dataset.cat || "").split(" ");
         const match = cat === "all" || cats.includes(cat);
+        const wasHidden = card.classList.contains("is-filtered-out");
         card.classList.toggle("is-filtered-out", !match);
+        if (match && wasHidden && !reduceMotion) {
+          card.classList.remove("just-shown");
+          void card.offsetWidth;
+          card.classList.add("just-shown");
+        }
       });
     });
   });
